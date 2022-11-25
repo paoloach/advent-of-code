@@ -1,13 +1,18 @@
 import java.io.File
 
+
+
 fun main(args: Array<String>) {
+    var tmp=Int.MAX_VALUE
     val fileName="input.txt"
-    val data = File(fileName).readLines().map { it.toInt() }
-    var sum = 0
-    for ( i in 1 until data.size){
-        if (data[i-1] < data[i])
-            sum++;
-    }
-    println(sum)
+    val data = File(fileName)
+        .readLines()
+        .map { it.toInt() }
+        .map {
+            val sup = it < tmp
+            tmp = it;
+            sup}
+        .count { !it }
+    println(data)
 
 }
