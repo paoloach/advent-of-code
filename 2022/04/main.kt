@@ -57,11 +57,4 @@ fun step2(){
 
 }
 
-fun convertPriority(it: Char):Int {
-    if (it.isLowerCase()){
-        return it.code-'a'.code+1
-    } else {
-        return it.code-'A'.code+27
-    }
-}
 
