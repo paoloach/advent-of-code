@@ -54,18 +54,6 @@ fun List<String>.step1():Int {
 fun List<String>.step2():Long {
     val  rows = map{parseLine(it)}
 
-    val minX = rows.map{ it.sensor.x-it.sensor.distL1(it.baecon)}.min()
-    val maxX = rows.map { it.sensor.x +it.sensor.distL1(it.baecon)}.max()
-
-    val points = mutableSetOf<Pos>()
-
-    rows.forEach {
-        points.add(it.sensor)
-        points.add(it.baecon)
-
-    }
-
-    var found = Pos(0,0)
     for( y in (0 .. 4000000)) {
         var x=0
         while(x < 4000000 ) {
